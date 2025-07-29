@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - MultiBazaar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <header class="bg-gray-900 text-white py-6 text-center">
+    <h1 class="text-3xl font-bold">MultiBazaar</h1>
+    <p class="text-lg">Frequently Asked Questions</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6 bg-white mt-10 rounded-lg shadow-md space-y-6">
+
+    <h2 class="text-2xl font-bold text-gray-800">🧾 General Questions</h2>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">1. What is MultiBazaar?</summary>
+      <p class="mt-2 text-gray-700">MultiBazaar is your one-stop online shop for anime, Marvel/DC merchandise, shoes, t-shirts, and more — based in India.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">2. Where do you deliver?</summary>
+      <p class="mt-2 text-gray-700">We currently deliver across all states of India. For remote or non-serviceable areas, we use India Post.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">3. What is the shipping charge?</summary>
+      <p class="mt-2 text-gray-700">Shipping is free for VIP members. For others, standard charges apply depending on the product size and location.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">4. Can I cancel or return my order?</summary>
+      <p class="mt-2 text-gray-700">Yes, orders can be canceled within 24 hours. Returns are accepted within 7 days of delivery if the product is damaged or wrong.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">5. What is the VIP Membership?</summary>
+      <p class="mt-2 text-gray-700">VIP users enjoy ₹100 OFF monthly, exclusive coupons, and early product access.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">6. Do you offer Cash on Delivery?</summary>
+      <p class="mt-2 text-gray-700">Currently, we only support prepaid orders via Razorpay or UPI. COD will be available soon.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">7. How long does it take to get my order?</summary>
+      <p class="mt-2 text-gray-700">We dispatch within 48 hours. Most orders reach within 3–7 working days based on your location.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">8. Is my payment secure?</summary>
+      <p class="mt-2 text-gray-700">Yes, all payments go through Razorpay with 128-bit SSL encryption.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">9. Where is MultiBazaar located?</summary>
+      <p class="mt-2 text-gray-700">We’re based in West Bengal, India, and proudly serve all of India.</p>
+    </details>
+
+    <details class="border rounded-lg p-4">
+      <summary class="cursor-pointer font-semibold text-lg">10. How do I contact customer care?</summary>
+      <p class="mt-2 text-gray-700">You can visit the Contact Us page or email us at <b>support@multibazaar.in</b>.</p>
+    </details>
+
+    <hr class="my-6">
+
+    <h2 class="text-xl font-bold mb-4 text-gray-800">🤖 Ask Our MiniBot</h2>
+    <input type="text" id="botInput" placeholder="Ask something..." class="w-full p-3 border rounded mb-3" />
+    <button onclick="askBot()" class="w-full bg-gray-800 text-white py-3 rounded hover:bg-gray-700">Ask</button>
+    <div id="botResponse" class="mt-4 text-lg font-medium text-blue-800"></div>
+
+  </main>
+
+  <footer class="text-center text-gray-600 text-sm mt-10 mb-6">
+    &copy; 2025 MultiBazaar. All rights reserved.
+  </footer>
+
+  <script>
+    function askBot() {
+      const input = document.getElementById(\"botInput\").value.toLowerCase();
+      const output = document.getElementById(\"botResponse\");
+
+      const answers = {
+        \"shipping\": \"We deliver across India within 3–7 days.\",
+        \"vip\": \"VIP members get ₹100 OFF monthly and free shipping.\",
+        \"refund\": \"You can return within 7 days if there's an issue.\",
+        \"cancel\": \"Cancel within 24 hours of placing the order.\",
+        \"payment\": \"Payments are processed securely via Razorpay.\",
+        \"contact\": \"Email us at support@multibazaar.in.\",
+        \"location\": \"We are located in West Bengal, India.\",
+      };
+
+      let response = \"Sorry, I don’t know that yet. Try asking about shipping, refund, or VIP.\";
+      for (let keyword in answers) {
+        if (input.includes(keyword)) {
+          response = answers[keyword];
+          break;
+        }
+      }
+
+      output.innerText = response;
+    }
+  </script>
+
+</body>
+</html>

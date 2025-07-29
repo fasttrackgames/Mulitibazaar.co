@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Account - MultiBazaar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      margin: 0;
+    }
+
+    header, footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e2a38;
+    }
+
+    .order {
+      border: 1px solid #ccc;
+      border-left: 4px solid #2c3e50;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .order p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MultiBazaar</h1>
+    <p>My Account</p>
+  </header>
+
+  <main>
+    <h2>👋 Welcome, User!</h2>
+
+    <div class="section">
+      <h3>🧾 Your Details</h3>
+      <label>Full Name</label>
+      <input type="text" value="Your Name">
+
+      <label>Email</label>
+      <input type="email" value="your@email.com">
+
+      <label>Phone Number</label>
+      <input type="text" value="+91-9876543210">
+
+      <label>Shipping Address</label>
+      <input type="text" value="123, Your Street, West Bengal, India">
+
+      <button>Update Info</button>
+    </div>
+
+    <div class="section">
+      <h3>📦 Order History</h3>
+
+      <div class="order">
+        <p><strong>Order ID:</strong> #MBZ1023</p>
+        <p><strong>Product:</strong> One Piece Manga Vol. 5</p>
+        <p><strong>Status:</strong> Delivered</p>
+        <button>View Invoice</button>
+      </div>
+
+      <div class="order">
+        <p><strong>Order ID:</strong> #MBZ1055</p>
+        <p><strong>Product:</strong> DC Flash Hoodie</p>
+        <p><strong>Status:</strong> Shipped</p>
+        <button>Cancel Order</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>🌟 VIP Status</h3>
+      <p><strong>Status:</strong> ✅ Active</p>
+      <p><strong>Joined On:</strong> 02-Feb-2025</p>
+      <p><strong>Next Benefit:</strong> ₹100 OFF Coupon on ₹599+</p>
+      <button>Upgrade Plan</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 MultiBazaar. All rights reserved.
+  </footer>
+
+</body>
+</html>

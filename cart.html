@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STICKvex - Your Cart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-details {
+      flex: 1;
+    }
+
+    .cart-details h4 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="number"] {
+      width: 50px;
+      padding: 6px;
+      text-align: center;
+    }
+
+    .remove-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .summary {
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    .summary h3 {
+      margin: 10px 0;
+    }
+
+    .checkout-btn {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background-color: #1e2a38;
+    }
+
+    .tick {
+      color: green;
+      font-size: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>STICKvex</h1>
+    <p>Your Shopping Cart</p>
+  </header>
+
+  <main>
+    <h2>🧺 Your Items</h2>
+
+    <div class="cart-item">
+      <div class="cart-details">
+        <h4>Naruto Sticker Pack</h4>
+        <p>₹49</p>
+      </div>
+      <div class="cart-controls">
+        <input type="number" value="1" min="1" onchange="updateCart()">
+        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="cart-details">
+        <h4>DC Flash Hoodie</h4>
+        <p>₹799</p>
+      </div>
+      <div class="cart-controls">
+        <input type="number" value="1" min="1" onchange="updateCart()">
+        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+
+    <div class="summary">
+      <h3>Total: ₹<span id="totalPrice">848</span></h3>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      <div class="tick" id="tick">✔ Order Initiated</div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 STICKvex. All rights reserved.
+  </footer>
+
+  <script>
+    function updateCart() {
+      const items = document.querySelectorAll(".cart-item");
+      let total = 0;
+      items.forEach(item => {
+        const name = item.querySelector("h4").textContent;
+        let price = name.includes("Sticker") ? 49 : 799;
+        const qty = parseInt(item.querySelector("input").value);
+        total += price * qty;
+      });
+      document.getElementById("totalPrice").textContent = total;
+    }
+
+    function removeItem(btn) {
+      btn.closest(".cart-item").remove();
+      updateCart();
+    }
+
+    function checkout() {
+      document.getElementById("tick").style.display = "block";
+      alert("Checkout started! You can now connect Razorpay later.");
+    }
+  </script>
+
+</body>
+</html>

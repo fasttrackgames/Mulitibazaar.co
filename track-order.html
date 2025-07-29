@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order - MultiBazaar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <header class="bg-gray-900 text-white text-center py-6">
+    <h1 class="text-3xl font-bold">MultiBazaar</h1>
+    <p class="text-lg">Track Your Order</p>
+  </header>
+
+  <main class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded shadow-md">
+    <h2 class="text-xl font-semibold mb-4">🔍 Enter Your Order ID</h2>
+
+    <input id="orderId" type="text" placeholder="e.g. MBZ1023" class="w-full border p-3 rounded mb-4" />
+    <button onclick="trackOrder()" class="w-full bg-gray-900 text-white py-3 rounded hover:bg-gray-800">Track</button>
+
+    <div id="result" class="mt-6 hidden bg-green-100 text-green-800 p-4 rounded text-center text-lg font-medium">
+      ✔️ Order Found: <span id="orderStatus">Shipped</span>
+    </div>
+
+    <div id="notFound" class="mt-6 hidden bg-red-100 text-red-800 p-4 rounded text-center text-lg font-medium">
+      ❌ Order Not Found. Please check your Order ID.
+    </div>
+  </main>
+
+  <footer class="text-center text-sm text-gray-600 mt-12 mb-6">
+    &copy; 2025 MultiBazaar. All rights reserved.
+  </footer>
+
+  <script>
+    function trackOrder() {
+      const id = document.getElementById("orderId").value.trim().toUpperCase();
+      const resultBox = document.getElementById("result");
+      const notFoundBox = document.getElementById("notFound");
+
+      resultBox.classList.add("hidden");
+      notFoundBox.classList.add("hidden");
+
+      // Dummy example logic
+      const orders = {
+        "MBZ1023": "Delivered",
+        "MBZ1055": "Shipped",
+        "MBZ1099": "Processing"
+      };
+
+      if (orders[id]) {
+        document.getElementById("orderStatus").innerText = orders[id];
+        resultBox.classList.remove("hidden");
+      } else {
+        notFoundBox.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
